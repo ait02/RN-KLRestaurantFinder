@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { withNavigation } from "react-navigation";
 import RestaurantBox from "./RestaurantBox";
 
 const RestaurantsList = ({ title, restaurants, navigation }) => {
@@ -23,7 +22,10 @@ const RestaurantsList = ({ title, restaurants, navigation }) => {
           return (
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("RestaurantShow", { id: item.id })
+                navigation.navigate("Restaurant Screen", {
+                  id: item.id,
+                  name: item.name,
+                })
               }
             >
               <RestaurantBox restaurant={item} />
@@ -43,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(RestaurantsList);
+export default RestaurantsList;

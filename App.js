@@ -1,19 +1,47 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import RestaurantScreen from "./src/screens/RestaurantScreen";
 import SearchScreen from "./src/screens/SearchScreen";
+import SearchScreenHeader from "./src/components/SearchScreenHeader";
 
-const navigator = createStackNavigator(
-  {
-    Search: SearchScreen,
-    RestaurantShow: RestaurantScreen,
-  },
-  {
-    initialRouteName: "Search",
-    defaultNavigationOptions: {
-      title: "KL Restaurant Finder",
-    },
-  }
-);
+const Stack = createStackNavigator();
 
-export default createAppContainer(navigator);
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Search"
+          component={SearchScreen}
+          options={{
+            header: () => <SearchScreenHeader />,
+          }}
+        />
+        <Stack.Screen
+          name="Restaurant Screen"
+          component={RestaurantScreen}
+          options={({ route, navigation }) => ({
+            title: route.params.name,
+            headerStyle: { backgroundColor: "#1A434E" },
+          })}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+// const App = createStackNavigator(
+//   {
+//     Search: SearchScreen,
+//     RestaurantShow: RestaurantScreen,
+//   },
+//   {
+//     initialRouteName: "Search",
+//     defaultNavigationOptions: {
+//       title: "KL Restaurant Finder",
+//     },
+//   }
+// );
+
+export default App;

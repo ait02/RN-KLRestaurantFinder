@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import useRestaurant from "../hooks/useRestaurant";
 
-const RestaurantScreen = ({ navigation }) => {
-  const id = navigation.getParam("id");
+const RestaurantScreen = ({ navigation, route }) => {
+  const { id } = route.params;
   const [searchApi, restaurantDetails, errorMessage] = useRestaurant();
 
   useEffect(() => {
@@ -23,7 +23,6 @@ const RestaurantScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Text>{restaurantDetails.name}</Text>
       <View style={styles.imageContainer}>
         <FlatList
           data={restaurantDetails.photos}

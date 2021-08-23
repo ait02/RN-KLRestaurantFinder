@@ -23,7 +23,7 @@ const SearchBar = ({ searchTerm, onSearchTermChange, onSearchTermSubmit }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { top: 20 },
   backgroundStyle: {
     shadowColor: "#000",
     shadowOffset: {
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     backgroundColor: "#F0EEEE",
     height: 50,
-    borderRadius: 5,
+    borderRadius: 12,
     margin: 15,
     flexDirection: "row",
     paddingHorizontal: 10,

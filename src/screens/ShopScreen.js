@@ -7,17 +7,17 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import useRestaurant from "../hooks/useRestaurant";
+import useShop from "../hooks/useShop";
 
-const RestaurantScreen = ({ navigation, route }) => {
+const ShopScreen = ({ navigation, route }) => {
   const { id } = route.params;
-  const [searchApi, restaurantDetails, errorMessage] = useRestaurant();
+  const [searchApi, shopDetails, errorMessage] = useShop();
 
   useEffect(() => {
     searchApi(id);
   }, []);
 
-  if (!restaurantDetails) {
+  if (!shopDetails) {
     return null;
   }
 
@@ -25,7 +25,7 @@ const RestaurantScreen = ({ navigation, route }) => {
     <View>
       <View style={styles.imageContainer}>
         <FlatList
-          data={restaurantDetails.photos}
+          data={shopDetails.photos}
           keyExtractor={(item) => item}
           renderItem={({ item }) => {
             return <Image style={styles.image} source={{ uri: item }} />;
@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RestaurantScreen;
+export default ShopScreen;

@@ -1,41 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Dimensions, ScrollView } from "react-native";
-import RestaurantsList from "../components/RestaurantsList";
+import ShopsList from "../components/ShopsList";
 import SearchBar from "../components/SearchBar";
-import useRestaurants from "../hooks/useRestaurants";
+import useShops from "../hooks/useShops";
 
 const SearchScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchApi, restaurants, errorMessage] = useRestaurants();
+  const [searchApi, shops, errorMessage] = useShops();
 
-  const filterRestaurantsByPrice = (price) => {
-    return restaurants.filter((restaurant) => {
-      return restaurant.price === price;
+  const filterShopsByPrice = (price) => {
+    return shops.filter((shop) => {
+      return shop.price === price;
     });
   };
 
   return (
     <>
-      {/* <SearchBar
+      <SearchBar
         searchTerm={searchTerm}
         onSearchTermChange={setSearchTerm}
         onSearchTermSubmit={() => searchApi(searchTerm)}
-      /> */}
+      />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <ScrollView style={styles.container}>
-        <RestaurantsList
-          title="Low Price Restaurants"
-          restaurants={filterRestaurantsByPrice("$")}
+        <ShopsList
+          title="Low Price Shops"
+          shops={filterShopsByPrice("$")}
           navigation={navigation}
         />
-        <RestaurantsList
-          title="Average Price Restaurants"
-          restaurants={filterRestaurantsByPrice("$$")}
+        <ShopsList
+          title="Average Price Shops"
+          shops={filterShopsByPrice("$$")}
           navigation={navigation}
         />
-        <RestaurantsList
-          title="Restaurant Golongan T20"
-          restaurants={filterRestaurantsByPrice("$$$")}
+        <ShopsList
+          title="Kedai Golongan T20"
+          shops={filterShopsByPrice("$$$")}
           navigation={navigation}
         />
       </ScrollView>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,28 +7,28 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import RestaurantBox from "./RestaurantBox";
+import ShopBox from "./ShopBox";
 
-const RestaurantsList = ({ title, restaurants, navigation }) => {
+const ShopsList = ({ title, shops, navigation }) => {
   return (
-    <View>
+    <View style={{ marginBottom: 10 }}>
       <Text style={styles.titleStyle}>{title}</Text>
       <FlatList
         showsHorizontalScrollIndicator={false}
         horizontal
-        data={restaurants}
-        keyExtractor={(restaurant) => restaurant.id}
+        data={shops}
+        keyExtractor={(shop) => shop.id}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("Restaurant Screen", {
+                navigation.navigate("Shop Screen", {
                   id: item.id,
                   name: item.name,
                 })
               }
             >
-              <RestaurantBox restaurant={item} />
+              <ShopBox shop={item} />
             </TouchableOpacity>
           );
         }}
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RestaurantsList;
+export default ShopsList;

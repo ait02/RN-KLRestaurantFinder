@@ -1,6 +1,6 @@
 import React from "react";
-import { View, TextInput, StyleSheet } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+import { Feather, Ionicons } from "@expo/vector-icons";
 
 const SearchBar = ({ searchTerm, onSearchTermChange, onSearchTermSubmit }) => {
   return (
@@ -16,14 +16,26 @@ const SearchBar = ({ searchTerm, onSearchTermChange, onSearchTermSubmit }) => {
           value={searchTerm}
           onChangeText={onSearchTermChange}
           onEndEditing={onSearchTermSubmit}
-        ></TextInput>
+        />
+        <TouchableOpacity
+          onPress={() => onSearchTermChange("")}
+          style={styles.entypoStyle}
+        >
+          <Ionicons name="close-outline" style={{ fontSize: 28 }} />
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { top: 20 },
+  container: {
+    top: -10,
+    backgroundColor: "#1A434E",
+    height: 40,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+  },
   backgroundStyle: {
     shadowColor: "#000",
     shadowOffset: {
@@ -44,6 +56,15 @@ const styles = StyleSheet.create({
   featherStyle: {
     fontSize: 28,
     alignSelf: "center",
+    marginRight: 8,
+  },
+  entypoStyle: {
+    fontSize: 28,
+    alignSelf: "center",
+    height: "100%",
+    width: 40,
+    justifyContent: "center",
+    alignItems: "center",
   },
   inputStyle: {
     flex: 1,

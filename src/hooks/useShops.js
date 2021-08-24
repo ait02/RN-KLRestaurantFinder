@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import yelp from "../api/yelp";
 
 export default () => {
-  const [restaurants, setRestaurants] = useState([]);
+  const [shops, setShops] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
@@ -18,13 +18,13 @@ export default () => {
           location: "kuala lumpur",
         },
       });
-      setRestaurants(response.data.businesses);
+      setShops(response.data.businesses);
       setErrorMessage("");
     } catch (error) {
-      setRestaurants([]);
+      setShops([]);
       setErrorMessage("Something went wrong.");
     }
   };
 
-  return [searchApi, restaurants, errorMessage];
+  return [searchApi, shops, errorMessage];
 };

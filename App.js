@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import RestaurantScreen from "./src/screens/RestaurantScreen";
+import ShopScreen from "./src/screens/ShopScreen";
 import SearchScreen from "./src/screens/SearchScreen";
 import SearchScreenHeader from "./src/components/SearchScreenHeader";
 
@@ -19,11 +19,13 @@ const App = () => {
           }}
         />
         <Stack.Screen
-          name="Restaurant Screen"
-          component={RestaurantScreen}
+          name="Shop Screen"
+          component={ShopScreen}
           options={({ route, navigation }) => ({
             title: route.params.name,
             headerStyle: { backgroundColor: "#1A434E" },
+            headerTitleStyle: { color: "#fff" },
+            headerTintColor: "#fff",
           })}
         />
       </Stack.Navigator>

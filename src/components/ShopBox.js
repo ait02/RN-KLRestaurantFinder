@@ -3,9 +3,14 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import StarRating from "react-native-star-rating";
 
-const ShopBox = ({ shop }) => {
+const ShopBox = ({ shop, firstShop }) => {
   return (
-    <View style={styles.shopContainer}>
+    <View
+      style={[
+        styles.shopContainer,
+        shop === firstShop ? { marginLeft: 8 } : null,
+      ]}
+    >
       <View style={styles.shopBackground}>
         {shop.image_url ? (
           <Image
@@ -38,7 +43,7 @@ const ShopBox = ({ shop }) => {
 
 const styles = StyleSheet.create({
   shopContainer: {
-    marginLeft: 8,
+    marginLeft: 4,
     marginBottom: 20,
     width: 290,
     height: 180,
@@ -47,14 +52,14 @@ const styles = StyleSheet.create({
   shopBackground: {
     // backgroundColor: "#F0EEEE",
     backgroundColor: "#F5F7FB",
-    borderRadius: 30,
+    borderRadius: 20,
     width: "auto",
     height: "auto",
     alignItems: "center",
     paddingVertical: 5,
   },
   imageStyle: {
-    borderRadius: 30,
+    borderRadius: 20,
     height: 140,
     width: 280,
     resizeMode: "cover",

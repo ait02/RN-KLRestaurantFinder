@@ -28,7 +28,7 @@ const ShopsList = ({ title, shops, navigation }) => {
                 })
               }
             >
-              <ShopBox shop={item} />
+              <ShopBox shop={item} firstShop={shops[0]} />
             </TouchableOpacity>
           );
         }}

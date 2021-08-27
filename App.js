@@ -24,7 +24,11 @@ const App = () => {
           options={({ route, navigation }) => ({
             title: route.params.name,
             headerStyle: { backgroundColor: "#1A434E" },
-            headerTitleStyle: { color: "#fff" },
+            headerTitleStyle: {
+              color: "#fff",
+              fontSize: 20,
+              fontWeight: "bold",
+            },
             headerTintColor: "#fff",
           })}
         />

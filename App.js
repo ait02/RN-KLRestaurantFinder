@@ -21,7 +21,7 @@ const App = () => {
         <Stack.Screen
           name="Shop Screen"
           component={ShopScreen}
-          options={({ route, navigation }) => ({
+          options={({ route }) => ({
             title: route.params.name,
             headerStyle: { backgroundColor: "#1A434E" },
             headerTitleStyle: {

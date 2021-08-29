@@ -25,7 +25,7 @@ const App = () => {
             title: route.params.name,
             headerStyle: { backgroundColor: "#1A434E" },
             headerTitleStyle: {
-              color: "#fff",
+              color: "#ffffff",
               fontSize: 20,
               fontWeight: "bold",
             },

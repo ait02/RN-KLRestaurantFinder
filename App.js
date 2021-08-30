@@ -37,17 +37,4 @@ const App = () => {
   );
 };
 
-// const App = createStackNavigator(
-//   {
-//     Search: SearchScreen,
-//     RestaurantShow: RestaurantScreen,
-//   },
-//   {
-//     initialRouteName: "Search",
-//     defaultNavigationOptions: {
-//       title: "KL Restaurant Finder",
-//     },
-//   }
-// );
-
 export default App;
